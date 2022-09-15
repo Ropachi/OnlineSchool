@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mystyle.css"/>
+</head>    
+    
+<body>
+    <ui:composition template="/templates/template.xhtml">
+        <ui:define name="title">Home</ui:define>
+        <ui:define name="content">
+            <h:panelGrid columns="1">    
+                <h:link outcome="course.xhtml">学習コース案内</h:link><br />
+                <h:link outcome="create.xhtml">アカウント作成</h:link>
+                <h:link outcome="login.xhtml">ログイン</h:link>
+            </h:panelGrid>            
+            <h2>レッスンまでの流れ</h2><br/>
+            <h2>Step1 アカウント作成</h2><br/>
+            <h2>Step2 (作成済みの方はログイン)</h2><br/>
+            <h2>Step3 レッスン申し込み</h2><br/>
+        </ui:define>
+    </ui:composition>
+</body>
+</html>

@@ -1,0 +1,21 @@
+#top {
+  width:960px;
+  height: 200px;
+  background-image:url("#{resource['images/Online.png']}");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: fixed;
+  background-size: 100% auto;    
+}
+
+#content {
+    width: 960px;
+}
+#bottom {
+  width: 960px;
+  height: 30px;  
+  padding: 10px 0;
+  background-color: #cccccc;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+}

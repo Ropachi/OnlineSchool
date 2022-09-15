@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+        <title>Account</title>
+        <link rel="stylesheet" type="text/css" href="/resources/css/mystyle.css"/>      
+    </h:head>
+    <body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="title">Course</ui:define>
+            <ui:define name="content">        
+                <h:link outcome="index02.xhtml">ホームへ</h:link><br />
+                <h1>Student Update</h1>
+                <h:form>
+                    <h:panelGrid columns="3">
+                        Name<h:inputText id="st_name" value="#{bb.st_name}" />
+                        <h:message for="st_name" styleClass="error" />
+                        Password<h:inputText id="st_psw" value="#{bb.st_psw}" />
+                        <h:message for="st_psw" styleClass="error" />
+                        Email<h:inputText id="st_mail" value="#{bb.st_mail}" />
+                        <h:message for="st_mail" styleClass="error" />
+                    </h:panelGrid>
+                    <h:panelGrid columns="3">
+                        <h:commandButton value="修正" action="#{bb.update()}" />
+                        <h:commandButton value="キャンセル" action="#{bb.clear()}" >
+                            <f:ajax render="@all" />
+                        </h:commandButton>    
+                    </h:panelGrid>
+                    <hr/>
+                    <h:dataTable value="#{bb.all}" var="item">
+                        <h:column>#{item.st_id}</h:column>
+                        <h:column>#{item.st_name}</h:column>
+                        <h:column>#{item.st_psw}</h:column>            
+                        <h:column>#{item.st_mail}</h:column>            
+                        <h:column>
+                            <h:commandLink value="Edit" action="#{bb.edit(item)}">
+                                <f:ajax execute="@this" render="@all" />
+                            </h:commandLink>                    
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+                
+            </ui:define>
+        </ui:composition>                    
+    </body>
+</html>

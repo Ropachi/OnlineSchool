@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+        <title>Lesson</title>
+        <link rel="stylesheet" type="text/css" href="/resources/css/mystyle.css"/>        
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="title">Course</ui:define>
+            <ui:define name="content">      
+                <h:panelGrid columns="1"> 
+                    <h:link outcome="index02.xhtml">ホームへ</h:link>
+                    <h:form id="form1">
+                        <h:commandButton value="ログアウト" action="#{bb.logout()}" />
+                    </h:form>
+
+                </h:panelGrid>
+               <h1>#{bb.login_name}様 申し込み済みレッスン削除</h1>
+               <h:form>
+                    <h:dataTable value="#{bb_ls.getbyId(bb.login_id)}" var="item">
+                        <h:column>#{item.ls_id}</h:column>
+                        <h:column>#{item.st_id}</h:column>
+                        <h:column>#{item.ls_cos}</h:column>
+                        <h:column>#{item.ls_time}</h:column>
+                        <h:column>#{item.ls_date}</h:column>
+                        <h:column><h:commandLink value="削除" action="#{bb_ls.delete (item)}"/></h:column>
+                    </h:dataTable>  
+                </h:form>
+               
+            </ui:define>
+        </ui:composition>                   
+    </h:body>
+</html>
